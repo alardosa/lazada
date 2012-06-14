@@ -35,66 +35,75 @@
 			    });
 			});
 		</script>
+		
+		<!--fb:login-button></fb:login-button-->
+		<div id="fb-root"></div>
+		
+		<script>(function(d, s, id) {
+		  var js, fjs = d.getElementsByTagName(s)[0];
+		  if (d.getElementById(id)) return;
+		  js = d.createElement(s); js.id = id;
+		  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=319607828121764";
+		  fjs.parentNode.insertBefore(js, fjs);
+		}(document, 'script', 'facebook-jssdk'));</script>
+		
+		<script>
+		    window.fbAsyncInit = function() {
+		        /*
+				FB.init({
+		            appId: '319607828121764',
+		            status: true,
+		            cookie: true,
+		            xfbml: true
+		        });
+				*/
+				
+				/* for liking the image */
+				$(document).ready(function(){
+					FB.Event.subscribe('edge.create', function (href, widget) {
+						var str = href;
+						//alert (str);
+						$.post("http://lazadapromo.com/jers_test/check/check.php",{ url: str },
+				        function(data) {
+				            $('#feedback').html(data);
+				        });
+					});
+				});
+				
+				/* for unliking the image */
+		    	$(document).ready(function(){
+		        	FB.Event.subscribe('edge.remove', function (href, widget) {
+		            	var str = href;
+						//alert (str);
+						$.post("http://lazadapromo.com/jers_test/check/check.php",{ url: str },
+				        function(data) {
+				            $('#feedback').html(data);
+				        });
+					});   
+		        });
+		    };
+		
+		    (function(d) {
+		        var js, id = 'facebook-jssdk'; if (d.getElementById(id)) { return; }
+		        js = d.createElement('script'); js.id = id; js.async = true;
+		        js.src = "//connect.facebook.net/en_US/all.js";
+		        d.getElementsByTagName('head')[0].appendChild(js);
+		    }(document));
+		</script>
+		
+		<!-- twitter -->
+		<script>
+		!function(d,s,id){
+			var js,fjs=d.getElementsByTagName(s)[0];
+			if(!d.getElementById(id)){
+				js=d.createElement(s);
+				js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);
+		}}(document,"script","twitter-wjs");
+		</script>
+		<!-- twitter -->
 	</head>
 	
 	<body>
-	
-	<!--fb:login-button></fb:login-button-->
-	<div id="fb-root"></div>
-	
-	<script>(function(d, s, id) {
-	  var js, fjs = d.getElementsByTagName(s)[0];
-	  if (d.getElementById(id)) return;
-	  js = d.createElement(s); js.id = id;
-	  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=319607828121764";
-	  fjs.parentNode.insertBefore(js, fjs);
-	}(document, 'script', 'facebook-jssdk'));</script>
-	
-	<!-- jerson -->
-	<script>
-	    window.fbAsyncInit = function() {
-	        /*
-			FB.init({
-	            appId: '319607828121764',
-	            status: true,
-	            cookie: true,
-	            xfbml: true
-	        });
-			*/
-			
-			/* for liking the image */
-			$(document).ready(function(){
-				FB.Event.subscribe('edge.create', function (href, widget) {
-					var str = href;
-					//alert (str);
-					$.post("http://lazadapromo.com/jers_test/check/check.php",{ url: str },
-			        function(data) {
-			            $('#feedback').html(data);
-			        });
-				});
-			});
-			
-			/* for unliking the image */
-	    	$(document).ready(function(){
-	        	FB.Event.subscribe('edge.remove', function (href, widget) {
-	            	var str = href;
-					//alert (str);
-					$.post("http://lazadapromo.com/jers_test/check/check.php",{ url: str },
-			        function(data) {
-			            $('#feedback').html(data);
-			        });
-				});   
-	        });
-	    };
-	
-	    (function(d) {
-	        var js, id = 'facebook-jssdk'; if (d.getElementById(id)) { return; }
-	        js = d.createElement('script'); js.id = id; js.async = true;
-	        js.src = "//connect.facebook.net/en_US/all.js";
-	        d.getElementsByTagName('head')[0].appendChild(js);
-	    }(document));
-	</script>
-	
 		<?php echo $template['body'];?>
 	</body>
 	<!--input type="button" id="driver" value="Load Data" /-->
