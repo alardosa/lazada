@@ -1,4 +1,4 @@
 Lazada
 ======
 
-Project Management Team
+Product Management Team
