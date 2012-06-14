@@ -14,7 +14,7 @@
 | path to your installation.
 |
 */
-$config['base_url']	= 'http://lazadapromo.com/rose_test/';
+$config['base_url']	= 'http://localhost/lazada/';
 
 define('IMG',$config['base_url'].'assets/img/');
 define('JS',$config['base_url'].'assets/js/');
