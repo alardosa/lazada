@@ -43,7 +43,7 @@ $route['404_override'] = '';
 
 //Custom route
 $route['admin'] 				= "auth";
-$route['admin/login'] 			= "auth/login"
+$route['admin/login'] 			= "auth/login";
 
 
 /* End of file routes.php */
