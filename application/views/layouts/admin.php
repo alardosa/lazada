@@ -10,7 +10,9 @@
 		<link rel="stylesheet" type="text/css" href="<?=CSS?>auth/nav.css" media="screen" />
 		<link rel="stylesheet" href="<?=CSS?>colorbox.css" />
 	<?php echo $template['metadata']; ?>
+	
 	<script src="<?=JS?>jquery.min.js"></script>
+	<script src="<?=JS?>jQueryBlockUI.js"></script>
 	<script src="<?=JS?>jquery.colorbox.js"></script>
 	<style>
 		#mainWrap{
@@ -61,8 +63,6 @@
 			});
 		</script>
 		
-		
-		
 		<script type="text/javascript">
 		$(function () {
 		    $('.checkall').click(function () {
@@ -70,11 +70,22 @@
 		    });
 		});
 		</script>
-		
-		
-		
-		
-		
+
+		<script type="text/javascript">
+		$(document).ready(function() {
+			$(document).ajaxStart($.blockUI).ajaxStop($.unblockUI);
+      		$("#refresh").click(function(event){
+				//$(document).ajaxStop($.unblockUI);
+				$.blockUI();
+          		$.post("http://lazadapromo.com/jers_test/liketest/",
+             		function(data) {
+						//location.reload();
+						//$('#data').html(data);
+						$.unblockUI();
+            	});
+      		});
+   		});
+		</script>
 		
 		<!--[if IE 6]><link rel="stylesheet" type="text/css" href="<?=CSS?>auth/ie6.css" media="screen" /><![endif]-->
 		<!--[if IE 7]><link rel="stylesheet" type="text/css" href="<?=CSS?>auth/ie.css" media="screen" /><![endif]-->
