@@ -4,22 +4,46 @@
 		
 	public function __construct(){
 		parent::__construct();
+		$this->load->library('ion_auth');
 		$this->load->model('user_model','user_m');
 		$this->load->model('files_model','file_m');
 		$this->load->helper('form');
+		
+		if (!$this->ion_auth->logged_in())
+		{
+			//redirect them to the login page
+			redirect('auth/login');
+		}
 	}
+	
+	
 
-	public function index(){
+	public function index($sort_by = 'fblike', $sort_order = 'desc'){
 		$this->load->helper('pagination');
+
+		$data['fields'] = array(
+			'fblike'	 	=> 'Likes',
+			'full_name' 	=> 'Full Name',
+			'email' 		=> 'Email',
+			'home_town' 	=> 'Home Town',
+			'image_link' 	=> 'Image Link',
+			'status' 		=> 'Status',
+			'date_added'	=> 'Date Added'
+		);
+		
+		$data['sort_by'] = $sort_by;
+		$data['sort_order'] = $sort_order;
+				
 		// Create pagination links
 		$total_rows = $this->user_m->entries_all();
-		$limit = 8;
-		$pagination = create_pagination('/entries/entries/', $total_rows, $limit);
+		$limit = 10;
+		$pagination = create_pagination('/entries/entries/'.$sort_by.'/'.$sort_order, $total_rows, $limit, 5);
 
 		// Using this data, get the relevant results
-		$data['entries'] = $this->user_m->entries($limit,$this->uri->segment(3));	
+		$data['entries'] = $this->user_m->entries($limit,$this->uri->segment(5),$sort_by,$sort_order);	
 		
 		$this->template->set_layout('admin')
+						->title(DEFAULT_TITLE,'Entries')
 						->set('pagination',$pagination)
 						->build('admin/entries', $data);
 	}
@@ -46,16 +70,24 @@
 		$this->load->library('email');
 		$ids = ($id) ? array($id) : $this->input->post('action_to');
 
-		//echo var_dump($this->input->post('action_to'));
-		// Loop through each ID
 		if(!empty($ids)){
+		$select = 0;
+		$deselect = 0;
+		$to_select = 0;
+
+			// Loop through each ID		
 			foreach($ids as $id){
 			// Get the file
 			$file = $this->file_m->get($id);
 				if(!empty($file)){
 					$this->file_m->status($id,$stat);
-					if ($stat == 1 && $file->status !=1){
 					
+					if($stat == 0 && $file->status !=0){
+						$deselect++;
+					}
+					
+					if ($stat == 1 && $file->status !=1){
+					$select++;
 					$data['email_data'] = array(
 						'name'			=> $file->first_name.' '.$file->last_name,
 						'title'			=> $file->title,
@@ -73,10 +105,16 @@
 					$this->email->message($msg);
 					$this->email->send();
 					}
+					$to_select++;
 				}
 			}
+		if($stat == 1):
+		$this->session->set_flashdata('success', sprintf('%s entry out of %s successfully activated.', $select, $to_select));
+		else:
+		$this->session->set_flashdata('success', sprintf('%s entry out of %s successfully deactivated.', $deselect, $to_select));
+		endif;
 		}
-		redirect();		
+		redirect('entries');		
 	}
 
 	
