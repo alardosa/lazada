@@ -23,13 +23,6 @@
 			padding: 10px;
 		}
 		
-		.sort_asc{
-			background: url(../img/down-arrow.png) #bbb no-repeat 70% 63%;
-		}
-		.sort_desc{
-			background: url(../img/up-arrow.png) #bbb no-repeat 70% 63%;
-		}
-		
 	/* Pagination Styles */
 	.pagination span {
 		width: 25px;
