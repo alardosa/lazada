@@ -3,6 +3,7 @@
 <div class="grid_12">
 	<div class="box">
 	<h2>Entries</h2>
+		<input type="button" id="refresh" value="Refresh">
 		<div style="margin: 0px; position: static; overflow: hidden;">
 		<div id="tables" class="block" style="margin: 0px;">
 		
