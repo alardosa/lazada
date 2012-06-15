@@ -38,7 +38,7 @@
 |
 */
 
-$route['default_controller'] = "gallery";
+$route['default_controller'] = "index";
 $route['404_override'] = '';
 
 //Custom route
