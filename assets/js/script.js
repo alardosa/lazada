@@ -6,7 +6,7 @@
 					$.blockUI();
 					$.post("http://lazadapromo.com/jers_test/liketest/",
 						function(data) {
-							//location.reload();
+							location.reload();
 							//$('#data').html(data);
 							$.unblockUI();
 					});
