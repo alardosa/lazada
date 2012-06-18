@@ -31,6 +31,11 @@
 			'field'		=> 'captcha',
 			'label'		=> 'Captcha',
 			'rules'		=> 'required|xss_clean|callback_check'
+		),
+		array(
+			'field'		=> 'userfile',
+			'label'		=> 'Upload File',
+			'rules'		=> 'callback__checkfile'
 		)
 	);
 	
@@ -46,6 +51,16 @@
 		}
     }
 	/*captcha - jerson*/
+	
+	//callback for image validation if !empty
+	public function _checkfile($userfile){
+		if(!empty($_FILES['userfile']['name'])){
+			return TRUE;
+		}else{
+			$this->form_validation->set_message('_checkfile','File must be uploaded.');
+			return FALSE;
+		}
+	}
 	
 	public function index(){
 		$this->load->library('email');
