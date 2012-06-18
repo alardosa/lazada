@@ -1,4 +1,7 @@
 <div id="mainWrap">
+<br /><br />
+<font face="Verdana" style="font-size: 20pt" color="#FFFFFF"><a href="#">HOT DEALS</a> | <a href="#">Back to School</a> | <a href="#">Submit Entry</a> | <a href="http://lazadapromo.com/rose_test/index.php/gallery">Gallery</a></font>
+<br /><br />
 <?php if(validation_errors()){
 	echo validation_errors();	
 }
@@ -6,8 +9,6 @@
 		echo '<p>'.$error.'</p>';
 	}
 ?>
-<p><a href="#">HOT DEALS</a> | <a href="#">Back to School</a> | <?php echo anchor('submit','Submit Entry'); ?> | <a href="#">Gallery</a></p><br /><br /><br />
-<p><a href="http://lazadapromo.com/rose_test/index.php/submit">LOGIN TO FACEBOOK TO REGISTER</a></p>
 <?php echo form_open_multipart(site_url('submit'),'class="form"');
 	echo form_hidden('user_id',$this->session->userdata('user_id'));
 	echo 'Title '.form_input('title',$txtfield->title).'<br />';
