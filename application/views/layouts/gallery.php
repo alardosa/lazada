@@ -34,7 +34,7 @@
 				$(document).ready(function(){
 					FB.Event.subscribe('edge.create', function (href, widget) {
 						var str = href;
-						//alert (str);
+						alert (str);
 						$.post("http://lazadapromo.com/jers_test/check/check.php",{ url: str },
 				        function(data) {
 				            $('#feedback').html(data);
@@ -46,7 +46,7 @@
 		    	$(document).ready(function(){
 		        	FB.Event.subscribe('edge.remove', function (href, widget) {
 		            	var str = href;
-						//alert (str);
+						alert (str);
 						$.post("http://lazadapromo.com/jers_test/check/check.php",{ url: str },
 				        function(data) {
 				            $('#feedback').html(data);
