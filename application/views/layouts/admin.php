@@ -30,7 +30,7 @@
 			<div class="grid_12">
 				<ul class="nav main">
 					<li><a href="<?php echo site_url('entries');?>">Entries</a></li>
-					<li><a href="<?php echo site_url('auth');?>">Back-end Users</a></li>
+					<li><a href="<?php echo site_url('auth/users');?>">Back-end Users</a></li>
 					<li><a href="<?php echo site_url('auth/create_user');?>">Create a new user</a></li>
 					
 					<li class="secondary">
