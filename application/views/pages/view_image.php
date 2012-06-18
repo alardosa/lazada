@@ -15,7 +15,7 @@
 <?php if($file->status == 1):?>
 <p><img src="<?php echo site_url('files/large/'.$file->id); ?>" height="<?=$file->height?>" width="<?=$file->width?>" /></p>
 
-<div class="fb-like" data-href="<?php echo site_url('gallery/view/'.$file->id)?>" data-send="false" data-layout="button_count" data-width="200" data-show-faces="true"></div>
+<div class="fb-like" data-href="<?php echo site_url('gallery/view/'.$file->id)?>" data-send="false" data-layout="standard" data-width="450" data-show-faces="true"></div>
 
 <p>Title: <?php echo $file->title ?></p>
 <p>Description: <?php echo $file->description ?></p>
