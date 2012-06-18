@@ -70,6 +70,6 @@
 	
 	<body>
 		<?php echo $template['body'];?>
-		<div id="feedback"></div>
+		<!--div id="feedback"></div-->
 	</body>
 </html>
