@@ -149,7 +149,10 @@
 					}
 			
 					
-					$this->template->set('txtfield',$txtfield)
+					$this->template->set_layout('gallery')
+								->append_metadata('<link rel="stylesheet" href="'.CSS.'uniform.default.css" type="text/css" media="screen" />')					
+								->append_metadata('<script type="text/javascript" src="'.JS.'jquery.uniform.js"></script>')
+								->set('txtfield',$txtfield)
 								->set('error',$error)
 								->build('pages/submit');
 				//}
