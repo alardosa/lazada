@@ -3,8 +3,8 @@
 	xmlns:fb="http://www.facebook.com/2008/fbml">
 	<head>
 	<title>Lazada Photo Contest</title>
+	<!--<link rel="stylesheet" href="<?=CSS?>reset.css" />-->
 	<link rel="stylesheet" href="<?=CSS?>colorbox.css" />
-	<link rel="stylesheet" href="<?=CSS?>reset.css" />
 	<link rel="stylesheet" href="<?=CSS?>style.css" />
 	<?php echo $template['metadata']; ?>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
@@ -70,6 +70,6 @@
 	
 	<body>
 		<?php echo $template['body'];?>
-		<!--div id="feedback"></div-->
+		<div id="feedback"></div>
 	</body>
 </html>
