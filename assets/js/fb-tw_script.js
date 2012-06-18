@@ -13,7 +13,7 @@
 		$(document).ready(function(){
 			FB.Event.subscribe('edge.create', function (href, widget) {
 				var str = href;
-				alert (str);
+				//alert (str);
 				$.post("http://lazadapromo.com/jers_test/check/check.php",{ url: str },
 		        function(data) {
 		            $('#feedback').html(data);
@@ -25,7 +25,7 @@
     	$(document).ready(function(){
         	FB.Event.subscribe('edge.remove', function (href, widget) {
             	var str = href;
-				alert (str);
+				//alert (str);
 				$.post("http://lazadapromo.com/jers_test/check/check.php",{ url: str },
 		        function(data) {
 		            $('#feedback').html(data);
@@ -42,7 +42,7 @@
     }(document));
 
 
-//twitter -->
+/* twitter */
 
 !function(d,s,id){
 	var js,fjs=d.getElementsByTagName(s)[0];
@@ -51,4 +51,4 @@
 		js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);
 }}(document,"script","twitter-wjs");
 
-//twitter -->
+/* twitter */
