@@ -15,7 +15,7 @@
 	
 	<?php echo form_open_multipart(site_url('submit'),'class="form"');
 		echo form_hidden('user_id',$this->session->userdata('user_id'));
-		echo '<div class="inpWrap"><label>Title</label>'.form_input('title',$txtfield->title).'</div>';
+		echo '<div class="inpWrap"><label>Headline</label>'.form_input('title',$txtfield->title).'</div>';
 		echo '<div class="inpWrap"><label>Description</label>'. form_textarea('description',$txtfield->description).'</div>';
 		echo '<div class="inpWrap"><label>Upload file</label>'. form_upload('userfile','','class="file_upload"').'</div>';
 		
