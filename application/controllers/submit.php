@@ -28,14 +28,14 @@
 			'rules'		=> 'required|xss_clean'
 		),
 		array(
-			'field'		=> 'captcha',
-			'label'		=> 'Captcha',
-			'rules'		=> 'required|xss_clean|callback_check'
-		),
-		array(
 			'field'		=> 'userfile',
 			'label'		=> 'Upload File',
 			'rules'		=> 'callback__checkfile'
+		),
+		array(
+			'field'		=> 'captcha',
+			'label'		=> 'Captcha',
+			'rules'		=> 'required|xss_clean|callback_check'
 		)
 	);
 	
@@ -152,6 +152,7 @@
 					$this->template->set_layout('gallery')
 								->append_metadata('<link rel="stylesheet" href="'.CSS.'uniform.default.css" type="text/css" media="screen" />')					
 								->append_metadata('<script type="text/javascript" src="'.JS.'jquery.uniform.js"></script>')
+								->append_metadata('<script type="text/javascript" src="'.JS.'uniform_script.js"></script>')
 								->set('txtfield',$txtfield)
 								->set('error',$error)
 								->build('pages/submit');
@@ -169,7 +170,7 @@
 			//redirect('submit/upload_entry');
 		}
 	}
-	
+
 	public function success(){
 		$this->template->set_layout('gallery')
 					->build('pages/submit_success');
