@@ -31,8 +31,7 @@
 		public function view($id = 0){
 			$file = $this->files->get($id);
 
-			$this->template->append_metadata('<meta property="fb:app_id" content="{'.$this->config->item('facebook_app_id').'}">')
-							->append_metadata('<meta name="og:title" content="'.$file->title.'" />')
+			$this->template->append_metadata('<meta name="og:title" content="'.$file->title.'" />')
 							->append_metadata('<meta name="og:type" content="photo" />')
 							->append_metadata('<meta name="og:url" content="'.site_url('gallery/view/'.$file->id).'" />')
 							->append_metadata('<meta name="og:description" content="'.$file->description.'" />')

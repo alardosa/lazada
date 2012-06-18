@@ -48,6 +48,14 @@
 						->build('admin/entries', $data);
 	}
 	
+	public function view_entry($id = 0){
+		$file = $this->file_m->get($id);
+
+		$this->template->set_layout('gallery')
+						->set('file', $file)
+						->build('admin/view_entry');
+	}
+	
 	public function action($id = 0){
 		switch ($this->input->post('btnAction')){
 			case 'publish':
@@ -96,14 +104,14 @@
 					);
 							
 					//Send email notification for success upload
-					/*$this->email->from('noreply@lazada.com.ph', 'Lazada Online Shop Philippines');
+					$this->email->from('noreply@lazada.com.ph', 'Lazada Online Shop Philippines');
 					$this->email->to($file->email);
 					
 					$this->email->subject('LAZADA Photo Contest');
 					$this->email->set_mailtype('html');
 					$msg = $this->load->view('emails/approved_entry', $data, true);
 					$this->email->message($msg);
-					$this->email->send();*/
+					$this->email->send();
 					}
 					$to_select++;
 				}

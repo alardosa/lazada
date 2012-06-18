@@ -117,9 +117,9 @@
 							$this->email->send();
 							
 							$this->session->set_userdata('success','File has been successfully uploaded.');
+							
 						}
-						
-						redirect('gallery');
+						redirect('submit/success');
 						else:
 							$error = $file;
 						endif;	
@@ -146,12 +146,15 @@
 			# There's no active session, let's generate one
 			$login_url = $this->facebook->getLoginUrl(array(
 		                'req_perms' => 'email, user_activities, user_likes, user_birthday, user_hometown, user_location, user_photos',
-						'next'      => site_url('submit'),
-						'cancel_url'=> site_url('gallery')
 		                                      ));
 			redirect($login_url);
 			//redirect('submit/upload_entry');
 		}
+	}
+	
+	public function success(){
+		$this->template->set_layout('gallery')
+					->build('pages/submit_success');
 	}
 
 	public function upload_entry(){
