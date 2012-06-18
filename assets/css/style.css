@@ -1,13 +1,51 @@
 
 #mainWrap{
-	width: 960px;
-	margin: 0 auto;
 	font-family:Arial, Helvetica, sans-serif;
+	margin: 0 auto;
 	text-align: center;
+	width: 960px;
 }
+
+/*-- Form --*/
 .form{
 	text-align: left;
 }
+
+.form label{
+	display: inline-block;
+	width: 120px;
+	font-weight: bold;
+}
+
+.form input[type="text"]{
+	border: 1px solid #666;
+	width: 324px;
+	padding: 4px 8px;
+}
+
+.form textarea{
+	border: 1px solid #666;
+	width: 324px;
+	padding: 5px 8px;
+}
+
+.form .inpWrap{
+	margin-bottom: 10px;
+}
+
+/*-- Notifications --*/
+.notification{
+	margin-bottom:15px;
+}
+
+.errors p{
+	color: #ff0000;
+	font-size: 12px;
+	margin: 5px 0;
+}
+
+
+/*-- Gallery --*/
 ul.gallery{float:left}
 ul.gallery li{
 	float: left;
@@ -20,6 +58,7 @@ iframe{
 .viewImageWrap{
 	padding: 10px;
 }
+
 /* Pagination Styles */
 .pagination span {
 	width: 25px;
