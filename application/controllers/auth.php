@@ -28,9 +28,14 @@ class Auth extends CI_Controller {
 		}*/
 		else
 		{
+			redirect('entries');
+		}
+	}
+	
+	public function users(){
 			//set the flash data error message if there is one
 			$this->data['message'] = (validation_errors()) ? validation_errors() : $this->session->flashdata('message');
-
+			
 			//list the users
 			$this->data['users'] = $this->ion_auth->users()->result();
 			foreach ($this->data['users'] as $k => $user)
@@ -42,7 +47,6 @@ class Auth extends CI_Controller {
 			$this->template->set_layout('admin')
 						->title(DEFAULT_TITLE,'Back-end Users')
 						->build('auth/index', $this->data);
-		}
 	}
 
 	//log the user in
