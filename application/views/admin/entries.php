@@ -35,7 +35,7 @@
 		    <td>'.$entry->first_name.' '.$entry->last_name.'</td>
 		    <td>'.$entry->email.'</td>
 		    <td>'.$entry->hometown.'</td>
-		    <td><a href="'.base_url().'index.php/gallery/view/',$entry->file_id.'" class=iframe><img src="'.site_url('files/thumb/'.$entry->file_id.'/60/60').'" /></a></td>
+		    <td><a href="'.site_url('entries/view_entry/'.$entry->file_id).'" class=iframe><img src="'.site_url('files/thumb/'.$entry->file_id.'/60/60').'" /></a></td>
 		    <td>'.$status.'</td>
 			<td>'.date("Y-m-d", strtotime($entry->date_added)).'</td>
 		  </tr>';
