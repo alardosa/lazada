@@ -12,11 +12,7 @@
 	
 	<script type="text/javascript" src="<?=JS?>jquery.colorbox.js"></script>	
 	<script type="text/javascript" src="<?=JS?>colorbox_script.js"></script>
-	<script type="text/javascript">
-		$(function(){
-			$('.file_upload').uniform();
-		});
-	</script>	
+
 		<div id="fb-root"></div>
 		
 		<script>(function(d, s, id) {
