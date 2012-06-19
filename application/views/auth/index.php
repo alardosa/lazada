@@ -8,8 +8,6 @@
 
 	<p>Below is a list of the users.</p>
 	
-	<div id="infoMessage"><?php echo $message;?></div>
-	
 	<table cellpadding=0 cellspacing=10>
 		<thead>
 		<tr>
