@@ -10,4 +10,8 @@
 	if($this->session->flashdata('error')):
 		echo '<div class="notification errors">'.$this->session->flashdata('error').'</div>';
 	endif;
+	
+	if($this->session->userdata('file_error')):
+		echo '<div class="notification errors"><p>'.$this->session->userdata('file_error').'</p></div>';
+	endif;
 ?>
