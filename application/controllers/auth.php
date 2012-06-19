@@ -299,8 +299,8 @@ class Auth extends CI_Controller {
 		if ($activation)
 		{
 			//redirect them to the auth page
-			$this->session->set_flashdata('message', $this->ion_auth->messages());
-			redirect("auth", 'refresh');
+			$this->session->set_flashdata('success', $this->ion_auth->messages());
+			redirect("auth/users", 'refresh');
 		}
 		else
 		{
@@ -348,7 +348,7 @@ class Auth extends CI_Controller {
 			}
 
 			//redirect them back to the auth page
-			redirect('auth', 'refresh');
+			redirect('auth/users', 'refresh');
 		}
 	}
 
@@ -416,7 +416,7 @@ class Auth extends CI_Controller {
 		{ //check to see if we are creating the user
 			//redirect them back to the admin page
 			$this->session->set_flashdata('success', "Account Successfully Created");
-			redirect("auth", 'refresh');
+			redirect("auth/users", 'refresh');
 		}
 		else
 		{ //display the create user form
@@ -463,7 +463,7 @@ class Auth extends CI_Controller {
 			{
 				$this->session->set_flashdata('success', "Account Information Successfully Updated");
 			}
-			redirect('auth');
+			redirect('auth/users');
 		}
 		
 		$this->template->set_layout('admin')
@@ -478,14 +478,14 @@ class Auth extends CI_Controller {
 
 		if(!$user){
 			$this->session->set_flashdata('error', 'User not found.');
-			redirect('auth');
+			redirect('auth/users');
 		}
 				
 		if($this->ion_auth->delete_user($id)):
 			$this->session->set_flashdata('success','User Deleted');
 		endif;
 		
-		redirect('auth','refresh');
+		redirect('auth/users','refresh');
 	}
 
 	function _get_csrf_nonce()
