@@ -107,7 +107,7 @@
 					if($this->form_validation->run() == TRUE){
 						$file = $this->file_upload();   
 						
-						if(!empty($file) && is_array($file)):
+					if(!empty($file) && is_array($file)){
 						//Save entry
 						$create = $this->submit->create($uid, $file);
 						
@@ -131,13 +131,13 @@
 							$this->email->message($msg);
 							$this->email->send();
 							
-							$this->session->set_userdata('success','File has been successfully uploaded.');
-							
+							$this->session->unset_userdata('file_error');
+							redirect('submit/success');
 						}
-						redirect('submit/success');
-						else:
-							$error = $file;
-						endif;	
+					}else{
+						$error = $file;
+						$this->session->set_userdata('file_error', $error);
+					}	
 						
 						foreach($this->upload_frm as $key => $field):
 							$txtfield->$field['field'] = set_value($field['field']);
