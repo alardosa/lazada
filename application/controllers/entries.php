@@ -41,7 +41,7 @@
 
 		// Using this data, get the relevant results
 		$data['entries'] = $this->user_m->entries($limit,$this->uri->segment(5),$sort_by,$sort_order);	
-		
+
 		$this->template->set_layout('admin')
 						->title(DEFAULT_TITLE,'Entries')
 						->set('pagination',$pagination)
@@ -124,7 +124,38 @@
 		}
 		redirect('entries');		
 	}
+	
+	/*----- Lists Contestant -----*/
+	public function contestants($sort_by = 'last_name', $sort_order = 'asc'){
+		$this->load->helper('pagination');
 
+		$data['fields'] = array(
+			'last_name' 	=> 'Full Name',
+			'gender'		=> 'Gender',
+			'age'			=> 'Age',
+			'birthday'		=> 'Birthday',
+			'email' 		=> 'Email',
+			'hometown' 		=> 'Home Town',
+			'created_at'	=> 'Date Added'
+		);
+		
+		$data['sort_by'] = $sort_by;
+		$data['sort_order'] = $sort_order;
+				
+		// Create pagination links
+		$total_rows = $this->user_m->contestants_all()->num_rows();
+
+		$limit = 10;
+		$pagination = create_pagination('/entries/contestants/'.$sort_by.'/'.$sort_order, $total_rows, $limit, 5);
+
+		// Using this data, get the relevant results
+		$data['entries'] = $this->user_m->contestants($limit,$this->uri->segment(5),$sort_by,$sort_order);
+
+		$this->template->set_layout('admin')
+						->title(DEFAULT_TITLE,'List Contestants')
+						->set('pagination',$pagination)
+						->build('admin/contestants', $data);
+	}	
 	
 }
 
