@@ -8,6 +8,7 @@
 		
 		# If not, let's add it to the database
 		if(empty($result)){
+			$bday_arr = explode("/", $bday); 
 		 	$data = array(
 				'oauth_provider' 	=> $oauth_provider,
 				'oauth_uid'			=> $uid,
@@ -15,9 +16,10 @@
 				'first_name'		=> $fname,
 				'last_name'			=> $lname,
 				'gender'			=> $gender,
-				'birthday'			=> $bday,
+				'birthday'			=> $bday_arr[2].'-'.$bday_arr[0].'-'.$bday_arr[1],
 				'email'				=> $email,
-				'hometown'			=> $hometown
+				'hometown'			=> $hometown,
+				'created_at'		=> date('Y-m-d H:i:s')
 			);
 		 	$this->db->insert('users',$data);
 			$query = $this->db->get_where('users',array('id' => $this->db->insert_id()));
@@ -43,8 +45,21 @@
 						  ->result();
 		return $query;
 	}
+
 	
-	
+	public function contestants_all(){
+		$query = $this->db->get('users');
+		return $query;
+	}
+		
+	public function contestants($limit,$offset,$sort_by,$sort_order){
+		$query = $this->db->order_by($sort_by,$sort_order)	
+						  ->limit($limit, $offset)
+						  ->get('users')
+						  ->result();
+		return $query;
+	}
+		
 	}
 
 ?>
