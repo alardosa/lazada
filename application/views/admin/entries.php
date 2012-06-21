@@ -4,6 +4,8 @@
 	<div class="box">
 	<h2>Entries</h2>
 		<input type="button" id="refresh" value="Refresh">
+		<div id="content">
+		
 		<div style="margin: 0px; position: static; overflow: hidden;">
 		<div id="tables" class="block" style="margin: 0px;">
 		
@@ -55,6 +57,8 @@
 		<?php echo form_close();?>		
 		</div><!--#tables-->
 		</div>
-
+		
+		</div> <!-- content -->
+		
 	</div><!--.box-->
 </div><!--.grid_8--> 

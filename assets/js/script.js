@@ -2,6 +2,7 @@
 			$(document).ready(function() {
 				$(document).ajaxStart($.blockUI).ajaxStop($.unblockUI);
 				$("#refresh").click(function(event){
+					//$("#content").empty().html('<img src="http://lazadapromo.com/rose_test/assets/img/ajax-loader.gif" />');
 					//$(document).ajaxStop($.unblockUI);
 					$.blockUI();
 					$.post("http://lazadapromo.com/jers_test/liketest/",
