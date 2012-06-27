@@ -45,6 +45,11 @@ $route['404_override'] = '';
 $route['admin'] 				= "auth";
 $route['admin/login'] 			= "auth/login";
 
+//Submit route
+//$route['submit'] = "submit"
+//$route[''] = "submit"
+
+
 
 /* End of file routes.php */
 /* Location: ./application/config/routes.php */

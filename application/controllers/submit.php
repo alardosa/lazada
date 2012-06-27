@@ -62,7 +62,7 @@
 		}
 	}
 	
-	public function index(){
+	public function index($id = 0){
 		$this->load->library('email');
 		$this->facebook = new Facebook(array(
 		            'appId' => $this->config->item('facebook_app_id'),
@@ -105,7 +105,12 @@
 					$error = '';
 					
 					if($this->form_validation->run() == TRUE){
-						$file = $this->file_upload();   
+						if ($id == '1'){
+							$file = $this->file_upload();   	
+						}else if ($id == '2'){
+							$file = $this->add_video();   	
+						}
+						
 						
 					if(!empty($file) && is_array($file)){
 						//Save entry
@@ -154,8 +159,14 @@
 								->append_metadata('<script type="text/javascript" src="'.JS.'jquery.uniform.js"></script>')
 								->append_metadata('<script type="text/javascript" src="'.JS.'uniform_script.js"></script>')
 								->set('txtfield',$txtfield)
-								->set('error',$error)
-								->build('pages/submit');
+								->set('error',$error);
+								
+					if($id == '1'){
+						$this->template->build('pages/submit');
+					}else if ($id == '2'){
+						$this->template->build('pages/uploadvid');
+					}
+								
 				//}
 			} else {
 				# For testing purposes, if there was an error, let's kill the script 
@@ -207,6 +218,30 @@
 			$data = $this->upload->data();
 			return $data;
 		}
+	}
+	
+	public function add_video(){
+        if (isset($_FILES['video']['name']) && $_FILES['video']['name'] != '') {
+            unset($config);
+            $date = date("ymd");
+            $configVideo['upload_path'] = './video/';
+            $configVideo['max_size'] = '10240';
+            $configVideo['allowed_types'] = 'avi|flv|wmv|swf|gif|mp4';
+            $configVideo['overwrite'] = FALSE;
+            $configVideo['remove_spaces'] = TRUE;
+            $video_name = $date.$_FILES['video']['name'];
+            $configVideo['file_name'] = $video_name;
+
+            $this->load->library('upload', $configVideo);
+            $this->upload->initialize($configVideo);
+            if (!$this->upload->do_upload('video')) {
+                $error = $this->upload->display_errors();
+				return $error;
+            } else {
+                $data = $this->upload->data();
+                echo "Successfully Uploaded";
+            }
+        }
 	}
 		
 	}

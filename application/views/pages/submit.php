@@ -3,7 +3,7 @@
 		<tr>
 			<td>
 	<table border="0" width="900" id="table6">
-	<tr><td align="center"><font face="Verdana" style="font-size: 20pt" color="#FFFFFF">><a href="<?=base_url()?>">Home</a> | <a href="#">Hot Deals</a> | <a href="#">Back to School</a> | <a href="<?=base_url().'index.php/submit'?>">Submit Entry</a> | <a href="<?=base_url().'index.php/gallery'?>">Gallery</a></font></td></tr>
+	<tr><td align="center"><font face="Verdana" style="font-size: 20pt" color="#FFFFFF">><a href="<?=base_url()?>">Home</a> | <a href="#">Hot Deals</a> | <a href="#">Back to School</a> | <a href="<?=base_url().'index.php/submit/index/1'?>">Submit Entry</a> | <a href="<?=base_url().'index.php/gallery'?>">Gallery</a> | | <a href="<?=base_url().'index.php/submit/index/2'?>">Submit Video</a></font></td></tr>
 		<tr>
 			<td>
 			<table border="0" width="100%" id="table11">
@@ -13,7 +13,7 @@
 <br /><br />
 	<?php echo $this->load->view('partials/notices'); ?>
 	
-	<?php echo form_open_multipart(site_url('submit'),'class="form"');
+	<?php echo form_open_multipart(site_url('submit/index/1'),'class="form"');
 		echo form_hidden('user_id',$this->session->userdata('user_id'));
 		echo '<div class="inpWrap"><label>Headline</label>'.form_input('title',$txtfield->title).'</div>';
 		echo '<div class="inpWrap"><label>Description</label>'. form_textarea('description',$txtfield->description).'</div>';
