@@ -3,7 +3,7 @@
 		<tr>
 			<td>
 	<table border="0" width="900" id="table6">
-	<tr><td align="center"><font face="Verdana" style="font-size: 20pt" color="#FFFFFF"><a href="#">Hot Deals</a> | <a href="#">Back to School</a> | <a href="<?=base_url().'index.php/submit'?>">Submit Entry</a> | <a href="<?=base_url().'index.php/gallery'?>">Gallery</a></font></td></tr>
+	<tr><td align="center"><font face="Verdana" style="font-size: 20pt" color="#FFFFFF"><a href="#">Hot Deals</a> | <a href="#">Back to School</a> | <a href="<?=base_url().'index.php/submit'?>">Submit Entry</a> | <a href="<?=base_url().'index.php/gallery'?>">Gallery</a> | <a href="<?=base_url().'index.php/uploadvid'?>">Submit Video</a></font></td></tr>
 		<tr>
 			<td>
 			<table border="0" width="100%" id="table7" bgcolor="#FA9738">
