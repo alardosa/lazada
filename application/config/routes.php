@@ -46,10 +46,8 @@ $route['admin'] 				= "auth";
 $route['admin/login'] 			= "auth/login";
 
 //Submit route
-//$route['submit'] = "submit"
-//$route[''] = "submit"
-
-
+$route['submit/(:num)']   = "submit/index/$1";
+//$route['submit/(:num)']   = "submit/index/$2";
 
 /* End of file routes.php */
 /* Location: ./application/config/routes.php */

@@ -13,7 +13,7 @@
 <br /><br />
 	<?php echo $this->load->view('partials/notices'); ?>
 	
-	<?php echo form_open_multipart(site_url('submit/index/1'),'class="form"');
+	<?php echo form_open_multipart(site_url('submit/1'),'class="form"');
 		echo form_hidden('user_id',$this->session->userdata('user_id'));
 		echo '<div class="inpWrap"><label>Headline</label>'.form_input('title',$txtfield->title).'</div>';
 		echo '<div class="inpWrap"><label>Description</label>'. form_textarea('description',$txtfield->description).'</div>';
